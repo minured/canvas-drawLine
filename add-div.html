@@ -25,7 +25,7 @@
     <script>
       let canvas = document.getElementsByClassName("canvas")[0];
 
-      canvas.onclick = (e) => {
+      canvas.onmousemove = (e) => {
         console.log(e.clientX)
         console.log(e.clientY)
         let dot = document.createElement("div")
