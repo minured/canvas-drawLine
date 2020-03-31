@@ -30,14 +30,17 @@
         console.log(e.clientY)
         let dot = document.createElement("div")
         dot.style.background="black"
-        dot.style.width="5px"
-        dot.style.height="5px"
+        dot.style.width="8px"
+        dot.style.height="8px"
         dot.style.position="absolute"
         // 记得加 px
-        dot.style.left=e.clientX + "px"
-        dot.style.top=e.clientY + "px"
-        
+        dot.style.left=e.clientX - 4 + "px"
+        dot.style.top=e.clientY - 4 + "px"
+
+        dot.style.borderRadius="50%"
         canvas.appendChild(dot)
+
+
 
       };
 
