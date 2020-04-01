@@ -40,7 +40,8 @@
         dot.style.borderRadius="50%"
         canvas.appendChild(dot)
 
-
+        //这个方法会一直操作DOM，操作dom是跨线程通讯的，效率很低，
+        //所以应该使用html5的canvas功能
 
       };
 

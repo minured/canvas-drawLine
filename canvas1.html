@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas-demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #canvas {
+            /* border: 1px solid black; */
+
+        }
+        
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="300">
+
+    </canvas>
+    <script>
+        
+        //创建画布
+        let ctx = canvas.getContext("2d");
+        
+        
+        //这里是文档的宽高
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+        ctx.fillStyle="black";
+
+        
+
+        //设置一个画画开关布尔值
+        let paint = false;
+        canvas.onmousedown=()=>{
+            paint = true;
+            console.log("按下");
+        };
+
+        canvas.onmouseup=()=>{
+            paint = false;
+            console.log("弹起");
+        };
+
+
+        canvas.onmousemove =(e) => {
+
+            // console.log(e.clientX)
+            // console.log(e.clientY)
+            
+            if (paint === true) { 
+                ctx.fillRect(e.clientX-4, e.clientY-4, 8, 8);
+                console.log(2);
+            };
+
+        };
+
+ 
+    </script>
+</body>
+</html>
