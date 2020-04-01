@@ -37,14 +37,23 @@
 
         //设置一个画画开关布尔值
         let paint = false;
-        canvas.onmousedown=()=>{
+        canvas.onmousedown=(e)=>{
             paint = true;
             console.log("按下");
+
+            //按下开始画线
+            ctx.beginPath(e.clientX, e.clientY);
+            
+
         };
 
         canvas.onmouseup=()=>{
             paint = false;
             console.log("弹起");
+
+            //弹起，线关闭
+            // ctx.closePath(); //闭合路径
+            
         };
 
 
@@ -54,8 +63,19 @@
             // console.log(e.clientY)
             
             if (paint === true) { 
-                ctx.fillRect(e.clientX-4, e.clientY-4, 8, 8);
-                console.log(2);
+                // ctx.beginPath();
+                // ctx.arc(e.clientX, e.clientY, 4, 0, 2 * Math.PI);
+                // ctx.stroke() //描边
+                // ctx.fill();
+                // console.log(2);
+
+
+
+                //试着画线：线跟着移动画
+                ctx.lineTo(e.clientX,e.clientY);
+                ctx.stroke();   //描边，即把线显示出来
+
+
             };
 
         };
