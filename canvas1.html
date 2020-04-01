@@ -34,51 +34,41 @@
         ctx.fillStyle="black";
 
         
-
-        //设置一个画画开关布尔值
         let paint = false;
+        let beginX, beginY;
+        let lastXY;
+
+        function drawLine(x1, y1, x2, y2) {
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+            console.log(x1, y1, x2, y2)
+        }
+
+       
         canvas.onmousedown=(e)=>{
             paint = true;
-            console.log("按下");
-
-            //按下开始画线
-            ctx.beginPath(e.clientX, e.clientY);
-            
+            last = [e.clientX, e.clientY];
 
         };
 
         canvas.onmouseup=()=>{
             paint = false;
-            console.log("弹起");
-
-            //弹起，线关闭
-            // ctx.closePath(); //闭合路径
-            
+         
         };
 
 
         canvas.onmousemove =(e) => {
-
-            // console.log(e.clientX)
-            // console.log(e.clientY)
-            
+           
             if (paint === true) { 
-                // ctx.beginPath();
-                // ctx.arc(e.clientX, e.clientY, 4, 0, 2 * Math.PI);
-                // ctx.stroke() //描边
-                // ctx.fill();
-                // console.log(2);
 
-
-
-                //试着画线：线跟着移动画
-                ctx.lineTo(e.clientX,e.clientY);
-                ctx.stroke();   //描边，即把线显示出来
-
-
+                drawLine(last[0], last[1], e.clientX, e.clientY)
+                last = [e.clientX, e.clientY]
             };
 
         };
+
 
  
     </script>
